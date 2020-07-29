@@ -12,13 +12,11 @@ public class LatinSquare {
 	/**
 	 * LatinSquare - two dimensional array that's the core of the puzzle
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 */
 	private int[][] LatinSquare;
 
 	/**
-	 * @version 1.2
 	 * @since Lab #1
 	 */
 	private boolean bIgnoreZero;
@@ -26,7 +24,6 @@ public class LatinSquare {
 	/**
 	 * PV - ArrayList to collect PuzzleViolations 
 	 * 
-	 * @version 1.2A
 	 * @since Lab #2
 	 */
 	private ArrayList<PuzzleViolation> PV = new ArrayList<PuzzleViolation>();
@@ -34,7 +31,6 @@ public class LatinSquare {
 	/**
 	 * No-arg constructor, make it public, don't do anything in the constructor
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 */
 	public LatinSquare() {
@@ -46,7 +42,6 @@ public class LatinSquare {
 	 * Pass in a given puzzle, set the LatinSquare
 	 * 
 	 * @param puzzle Pass in given LatinSquare puzzle (probably for testing)
-	 * @version 1.1
 	 * @since Lab #1
 	 */
 
@@ -58,7 +53,6 @@ public class LatinSquare {
 	/**
 	 * return LatinSquare instance attribute
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @return - returns the instance of the LatinSquare
 	 */
@@ -69,7 +63,6 @@ public class LatinSquare {
 	/**
 	 * set LatinSquare instance attribute
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param latinSquare - pass in an instance of a possible LatinSquare
 	 */
@@ -82,6 +75,7 @@ public class LatinSquare {
 	 * Should the processing ignore zeros (hasDuplicates, etc)
 	 * 
 	 * @return
+	 * @since Lab #2	   
 	 */
 	public boolean isbIgnoreZero() {
 		return bIgnoreZero;
@@ -90,7 +84,6 @@ public class LatinSquare {
 	/**
 	 * Should the processing ignore zeros (hasDuplicates, etc)
 	 * 
-	 * @version 1.2A
 	 * @since Lab #2
 	 * @param bIgnoreZero
 	 */
@@ -101,7 +94,6 @@ public class LatinSquare {
 	/**
 	 * Pass in a one-dimension array, pass back true if there is a duplicate value
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param arr - one dimensional array to check for duplicates
 	 * @return - returns 'true' if any of the elements are duplicate
@@ -126,7 +118,6 @@ public class LatinSquare {
 	}
 
 	/**
-	 * @version 1.2
 	 * @since Lab #2
 	 * If there are any duplicates in any row or any column, return 'true'
 	 * @return Return 'true' if any element in column or row is duplicate
@@ -141,7 +132,6 @@ public class LatinSquare {
 		for (int j = 0; j < LatinSquare.length; j++) {
 			if (hasDuplicates(getColumn(j)))
 				AddPuzzleViolation(new PuzzleViolation(ePuzzleViolation.DupCol,j));
-
 		}
 		
 		return (this.PV.size() > 0);
@@ -149,7 +139,6 @@ public class LatinSquare {
 	
 	/**
 	 * Remove any zeros in an array
-	 * @version 1.2
 	 * @since Lab #2
 	 * @param arr
 	 * @return
@@ -165,7 +154,6 @@ public class LatinSquare {
 	 * doesElementExist - pass in one-dimension array and a value, if value exists
 	 * in array... then return true
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param arr    - one dimensional array to check
 	 * @param iValue - value to check against one dimensional array
@@ -187,7 +175,6 @@ public class LatinSquare {
 	/**
 	 * hasAllValues - return 'true' if every element from arr2 is in arr1
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param arr1 target array
 	 * @param arr2 source array
@@ -228,7 +215,6 @@ public class LatinSquare {
 	 *
 	 * In this example, getColumn(1) would return [1],[2],[4],[1]
 	 *
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param iCol The column you want returned from the two-dimensional array
 	 * @return one dimensional array of values for the given column
@@ -253,7 +239,6 @@ public class LatinSquare {
 	 * 
 	 * In this example, getRow(1) would return [1],[2],[3],[4]
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @param iRow given row of the two dimensional array to return
 	 * @return one dimensional array of the given row
@@ -272,7 +257,6 @@ public class LatinSquare {
 	 * duplicates If each element in the first row is found in every other row If
 	 * each element in the first coumn is found in every other column
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @return returns 'true' if the two-dimensional array is a LatinSquare
 	 */
@@ -281,15 +265,6 @@ public class LatinSquare {
 		boolean isLatinSquare = true;
 		ClearPuzzleViolation();
 		
-		// Return 'true' if...
-		// Each row and column doesn't contain duplicates
-		// If each element in the first row is found in every other row
-		// If each element in the first coumn is found in every other column
-
-		// Check to see if the any row or column has duplicates. If they do, return
-		// false;
-
-
 		if (hasDuplicates())
 			return false;
 		
@@ -314,7 +289,6 @@ public class LatinSquare {
 	/**
 	 * ContainsZero - return 'true' if any element in the LatinSquare is a zero
 	 * 
-	 * @version 1.1
 	 * @since Lab #1
 	 * @return - returns 'true' if any element in the LatinSquare is a zero
 	 */
@@ -333,8 +307,7 @@ public class LatinSquare {
 	
 	/**
 	 * getPV - Return the collection of PuzzleViolations
-	 * @version 1.2A
-	 * @since Lab #2A
+	 * @since Lab #2
 	 * @return
 	 */
 	protected ArrayList<PuzzleViolation> getPV() {
@@ -343,8 +316,7 @@ public class LatinSquare {
 
 	/**
 	 * ClearPuzzleViolation - clear the collection of PuzzleViolations
-	 * @version 1.2A
-	 * @since Lab #2A
+	 * @since Lab #2
 	 */
 	protected void ClearPuzzleViolation()
 	{
@@ -354,8 +326,7 @@ public class LatinSquare {
 	/**
 	 * AddPuzzleViolation - Add a PuzzleViolation to the collection
 	 * 
-	 * @version 1.2A
-	 * @since Lab #2A
+	 * @since Lab #2
 	 * @param pv
 	 */
 	protected void AddPuzzleViolation(PuzzleViolation pv)
