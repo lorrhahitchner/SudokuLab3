@@ -1,10 +1,11 @@
 package pkgHelper;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import pkgEnum.ePuzzleViolation;
 
