@@ -260,4 +260,49 @@ public class Sudoku extends LatinSquare {
 		
 		return true;
 	}
+	
+	/**
+	 * Pass in the column and row, and this will return the region number.  
+	 * Example... For a 9x9 Sudoku, parameters 4,0 (col=4, row=0), this will return 1 (4,0 sits in region 1)
+	 */
+	public int getRegionNbr() {
+		return 0;
+		
+	}
+	
+	/**
+	 * Write a method that will print the puzzle in the current state to the console. 
+	 */
+	public void printPuzzle() {
+		System.out.println(getPuzzle());
+	}
+	
+	/**
+	 * This method will set the diagonal regions in the puzzle.  
+	 * For a 9x9 Sudoku, this will set region 0, 4, 8 with shuffled values
+	 */
+	public void fillDiagonalRegions() {
+		
+	}
+	
+	/**
+	 * This method will set the un-shuffled values in a given region
+	 */
+	public void setRegion() {
+		
+	}
+	
+	/**
+	 * This method will shuffle the values of a given region
+	 */
+	public void shuffleRegion() {
+		
+	}
+	
+	/**
+	 * This method will shuffle a given array of values
+	 */
+	public void shuffleArray() {
+		
+	}
 }
