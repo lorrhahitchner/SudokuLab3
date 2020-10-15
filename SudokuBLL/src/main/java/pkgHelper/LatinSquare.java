@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.apache.commons.lang.ArrayUtils;
 
 import pkgEnum.ePuzzleViolation;
-
+//initial push
 public class LatinSquare {
 
 	/**
