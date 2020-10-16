@@ -266,7 +266,8 @@ public class Sudoku extends LatinSquare {
 	 * Example... For a 9x9 Sudoku, parameters 4,0 (col=4, row=0), this will return 1 (4,0 sits in region 1)
 	 */
 	public int getRegionNbr(int iCol, int iRow) {
-		return 0;
+		return iRow;
+		
 		
 	}
 	
