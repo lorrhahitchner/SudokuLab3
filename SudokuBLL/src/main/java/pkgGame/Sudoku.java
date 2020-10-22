@@ -266,9 +266,9 @@ public class Sudoku extends LatinSquare {
 	 * Example... For a 9x9 Sudoku, parameters 4,0 (col=4, row=0), this will return 1 (4,0 sits in region 1)
 	 */
 	public int getRegionNbr(int iCol, int iRow) {
-		return iRow;
-		
-		
+		int rowRegion = iRow / iSqrtSize;
+		int colRegion = iCol / iSqrtSize;
+		return rowRegion * iSqrtSize + colRegion;
 	}
 	
 	/**
@@ -286,11 +286,16 @@ public class Sudoku extends LatinSquare {
 		
 	}
 	
+
+	
 	/**
 	 * This method will set the un-shuffled values in a given region
 	 */
 	public void setRegion(int regNbr) {
-		
+		for(int i = 0; i < iSize; i++ ) {
+			int[] arr = getRegion(regNbr);
+			arr[i] = i + 1;
+		}
 	}
 	
 	/**
