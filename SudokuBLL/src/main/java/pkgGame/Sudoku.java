@@ -1,5 +1,8 @@
 package pkgGame;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
 import pkgHelper.PuzzleViolation;
@@ -292,10 +295,23 @@ public class Sudoku extends LatinSquare {
 	 * This method will set the un-shuffled values in a given region
 	 */
 	public void setRegion(int regNbr) {
+		/*
 		for(int i = 0; i < iSize; i++ ) {
 			int[] arr = getRegion(regNbr);
 			arr[i] = i + 1;
 		}
+		*/
+
+		int value = 1;
+		int col;
+		int row;
+		for (col= (regNbr / iSqrtSize) * iSqrtSize; col< regNbr + iSqrtSize; col++) {
+			for (row= (regNbr % iSqrtSize) * iSqrtSize; row< ((regNbr % iSqrtSize) * iSqrtSize) + iSqrtSize; row++) {
+				super.setIndex(row, col, value);
+				value++;
+			}
+		}
+
 	}
 	
 	/**
@@ -309,6 +325,17 @@ public class Sudoku extends LatinSquare {
 	 * This method will shuffle a given array of values
 	 */
 	public void shuffleArray(int[] nbrArr) {
-		
+		Random random = new SecureRandom();
+		int i;
+		for(i= nbrArr.length - 1; i>0; i--) {
+			int x = random.nextInt(i+1);
+			int swap = nbrArr[x];
+			nbrArr[x] = nbrArr[i];
+			nbrArr[i] = swap;
+		}
 	}
 }
+
+
+
+
