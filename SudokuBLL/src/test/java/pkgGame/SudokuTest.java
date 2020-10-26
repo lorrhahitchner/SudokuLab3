@@ -294,4 +294,111 @@ public class SudokuTest {
 		assertTrue(regNbr2 == regNbr);
 	}
 	
+	@Test
+	public void testFillDiagonalRegions() {
+		Sudoku s1 = null;
+		
+		int[][] puzzle = { 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+	
+		try {
+			 s1 = new Sudoku(puzzle);
+		} catch (Exception e) {
+			fail("Bad Sudoku");
+		}
+		
+		s1.fillDiagonalRegions();
+		assertFalse(s1.doesElementExist(s1.getRegion(0),0));
+		assertFalse(s1.doesElementExist(s1.getRegion(2),0));
+		assertFalse(s1.doesElementExist(s1.getRegion(4),0));
+		assertFalse(s1.doesElementExist(s1.getRegion(6),0));
+		assertFalse(s1.doesElementExist(s1.getRegion(8),0));	
+	}
+	
+	@Test
+	public void testSetRegion() {
+		Sudoku s1 = null;
+		
+		int[][] puzzle = { 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+	
+		try {
+			 s1 = new Sudoku(puzzle);
+		} catch (Exception e) {
+			fail("Bad Sudoku");
+		}
+		
+		s1.setRegion(1);
+		assertFalse(s1.doesElementExist(s1.getRegion(1),0));	
+	}
+	
+	@Test
+	public void testShuffleArray() {
+		Sudoku s1 = null;
+		
+		int[][] puzzle = { 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+	
+		try {
+			 s1 = new Sudoku(puzzle);
+		} catch (Exception e) {
+			fail("Bad Sudoku");
+		}
+		
+		int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] arr2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		
+		s1.shuffleArray(arr1);
+		assertFalse(arr1 == arr2);
+	}
+	
+	@Test
+	public void testShuffleRegion() {
+		Sudoku s1= null;
+		
+		int[][] puzzle = { 
+				{ 5, 3, 4, 6, 7, 8, 9, 1, 2 }, 
+				{ 6, 7, 2, 1, 9, 5, 3, 4, 8 }, 
+				{ 1, 9, 8, 3, 4, 2, 5, 6, 7 },
+				{ 8, 5, 9, 7, 6, 1, 4, 2, 3 }, 
+				{ 4, 2, 6, 8, 5, 3, 7, 9, 1 }, 
+				{ 7, 1, 3, 9, 2, 4, 8, 5, 6 },
+				{ 9, 6, 1, 5, 3, 7, 2, 8, 4 }, 
+				{ 2, 8, 7, 4, 1, 9, 6, 3, 5 }, 
+				{ 3, 4, 5, 2, 8, 6, 1, 7, 9 } };
+		
+		try {
+			 s1 = new Sudoku(puzzle);
+		} catch (Exception e) {
+			fail("Bad Sudoku");
+		}
+		int[] arr1 = s1.getRegion(0);
+		s1.shuffleRegion(0);
+		int[] arr2 = s1.getRegion(0);
+		assertFalse(arr1 == arr2);		
+	} 
 }
