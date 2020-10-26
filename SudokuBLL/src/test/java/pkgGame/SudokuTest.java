@@ -396,9 +396,9 @@ public class SudokuTest {
 		} catch (Exception e) {
 			fail("Bad Sudoku");
 		}
-		int[] arr1 = s1.getRegion(0);
+		int[] arr1 = {5,3,4,6,7,2,1,9,8};
 		s1.shuffleRegion(0);
 		int[] arr2 = s1.getRegion(0);
-		assertFalse(arr1 == arr2);		
+		assertFalse(arr1 == arr2);	
 	} 
 }

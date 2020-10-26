@@ -318,7 +318,18 @@ public class Sudoku extends LatinSquare {
 	 * This method will shuffle the values of a given region
 	 */
 	public void shuffleRegion(int regNbr) {
+		int col;
+		int row;
+		int value = 0;
+		int[] region = getRegion(regNbr);
+		shuffleArray(region);
 		
+		for (col= (regNbr / iSqrtSize) * iSqrtSize; col< regNbr + iSqrtSize; col++) {
+			for (row= (regNbr % iSqrtSize) * iSqrtSize; row< ((regNbr % iSqrtSize) * iSqrtSize) + iSqrtSize; row++) {
+				super.setIndex(row, col, region[value]);
+				value++;
+			}
+	}
 	}
 	
 	/**
