@@ -334,7 +334,7 @@ public class LatinSquare {
 		PV.add(pv);
 	}
 	public void setIndex(int iCol, int iRow, int value) {
-		LatinSquare[iRow][iCol] = value;
+		this.LatinSquare[iRow][iCol] = value;
 	}
 	
 }

@@ -286,7 +286,20 @@ public class Sudoku extends LatinSquare {
 	 * For a 9x9 Sudoku, this will set region 0, 4, 8 with shuffled values
 	 */
 	public void fillDiagonalRegions() {
-		
+		/**
+		 * for (int i = 0; i <= iSize - 1; i += iSqrtSize) {
+			setRegion(getRegionNbr(i, i));
+			shuffleRegion(getRegionNbr(i, i));
+			
+			System.out.println("Region number: " + i);
+		}
+		*/
+		setRegion(0);
+		shuffleRegion(0);
+		setRegion(4);
+		shuffleRegion(4);
+		setRegion(8);
+		shuffleRegion(8);
 	}
 	
 
@@ -306,7 +319,7 @@ public class Sudoku extends LatinSquare {
 		int col;
 		int row;
 		for (col= (regNbr / iSqrtSize) * iSqrtSize; col< regNbr + iSqrtSize; col++) {
-			for (row= (regNbr % iSqrtSize) * iSqrtSize; row< ((regNbr % iSqrtSize) * iSqrtSize) + iSqrtSize; row++) {
+			for (row= (regNbr / iSqrtSize) * iSqrtSize; row< ((regNbr % iSqrtSize) * iSqrtSize) + iSqrtSize; row++) {
 				super.setIndex(row, col, value);
 				value++;
 			}
@@ -320,14 +333,13 @@ public class Sudoku extends LatinSquare {
 	public void shuffleRegion(int regNbr) {
 		int col;
 		int row;
-		int value = 0;
-		int[] region = getRegion(regNbr);
-		shuffleArray(region);
+		int index = 0;
+		int[] regionArr = getRegion(regNbr);
+		shuffleArray(regionArr);
 		
 		for (col= (regNbr / iSqrtSize) * iSqrtSize; col< regNbr + iSqrtSize; col++) {
 			for (row= (regNbr % iSqrtSize) * iSqrtSize; row< ((regNbr % iSqrtSize) * iSqrtSize) + iSqrtSize; row++) {
-				super.setIndex(row, col, region[value]);
-				value++;
+				super.setIndex(col, row, regionArr[index++]);
 			}
 	}
 	}
