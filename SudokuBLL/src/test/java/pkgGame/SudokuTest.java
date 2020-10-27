@@ -316,11 +316,6 @@ public class SudokuTest {
 		}
 		
 		s1.fillDiagonalRegions();
-		for(int i = 0; i < 9; i++) {
-			System.out.print("\n" + s1.getRegion(0)[i]);
-			System.out.print("\n" + s1.getRegion(4)[i]);
-			System.out.print("\n" + s1.getRegion(8)[i]);
-		}
 		assertFalse(s1.doesElementExist(s1.getRegion(0),0));
 		assertFalse(s1.doesElementExist(s1.getRegion(4),0));
 		assertFalse(s1.doesElementExist(s1.getRegion(8),0));	
